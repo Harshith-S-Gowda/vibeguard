@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShipSafe — Hardware-Aware Embedded Dependency Security | AI Research R1</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">⚡</div>
+        <div class="brand-text">
+          <span class="brand-name">ShipSafe<span class="brand-accent">.io</span></span>
+          <span class="track-badge">AI RESEARCH · R1 | Embedded Security</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#hypothesis">Research &amp; Hypothesis</a>
+        <a href="#dimensions">4 Dimensions</a>
+        <a href="#studio">Embedded Studio</a>
+        <a href="#benchmark">Empirical Evaluation</a>
+        <a href="#failures">Failure Analysis</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="btnRunBenchmarkTop" class="btn btn-primary-gradient">
+          <span class="btn-icon">⚡</span> Run Baseline Benchmark
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="pill-dot"></span> The Big Hack 2.0 · AI Research Track 03 · Problem R1
+        </div>
+        <h1 class="hero-title">
+          Hardware-Aware <span class="gradient-text">Embedded Dependency Security</span>
+        </h1>
+        <p class="hero-subtitle">
+          An explainable security scanner for AI-generated embedded projects (ESP32, Arduino, PlatformIO). Intercepting lookalike libraries, WiFi credential theft, PlatformIO host build hooks, and hardware-context mismatches.
+        </p>
+
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-val text-cyan">4 Dimensions</div>
+            <div class="metric-label">Explainable Analysis</div>
+            <div class="metric-source">Name · Metadata · Source · Hardware</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val text-green">+71.4%</div>
+            <div class="metric-label">Recall Gain Over Baseline</div>
+            <div class="metric-source">Baseline 28.6% → ShipSafe 100%</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val text-green">0.0%</div>
+            <div class="metric-label">False Positive on Legit Libs</div>
+            <div class="metric-source">Permits Verified Network Drivers</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val text-purple">Dual Engine</div>
+            <div class="metric-label">Deterministic &amp; Random Forest</div>
+            <div class="metric-source">Rule Evidence + ML Probability</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Problem & Hypothesis Section -->
+    <section id="hypothesis" class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">RESEARCH SPECIFICATION</span>
+        <h2>1. Problem Context &amp; Scientific Hypothesis</h2>
+        <p>Addressing the critical blindspot of AI vibe-coding in embedded &amp; IoT systems.</p>
+      </div>
+
+      <div class="hypothesis-card">
+        <div class="hypothesis-badge">FORMAL RESEARCH HYPOTHESIS</div>
+        <blockquote class="hypothesis-text">
+          "Combining package-name similarity, publisher metadata, and hardware-aware source-code analysis can improve identification of suspicious embedded dependencies compared with name-similarity-only detection."
+        </blockquote>
+      </div>
+
+      <div class="problem-context-grid">
+        <div class="context-card">
+          <h4>Vibe Coding Risk</h4>
+          <p>
+            AI-assisted development speeds up software creation, but AI-written projects frequently import third-party dependencies without inspection. In microcontrollers, libraries execute with raw memory access, unprotected hardware peripherals, and unsegmented WiFi credentials.
+          </p>
+        </div>
+        <div class="context-card">
+          <h4>Embedded Context</h4>
+          <p>
+            ESP32 and Arduino projects import sensor, communication, and utility libraries from registries (PlatformIO, Arduino). Lookalike packages imitate trusted libraries (e.g. <code>Arduin0Json</code>, <code>PubSubCllient</code>) or introduce hidden network exfiltration in simple sensor drivers.
+          </p>
+        </div>
+        <div class="context-card">
+          <h4>Who is Affected</h4>
+          <p>
+            Embedded developers using AI coding tools (Cursor, Copilot, Lovable) and the end-users who deploy the connected devices, smart meters, medical monitors, and industrial controllers they ship.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Four Analysis Dimensions Section -->
+    <section id="dimensions" class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">CORE METHODOLOGY</span>
+        <h2>2. Four Analysis Dimensions</h2>
+        <p>A multi-layered defense pipeline combining deterministic explainability with machine learning.</p>
+      </div>
+
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="card-icon">🔤</div>
+          <h3>① Package-Name Similarity</h3>
+          <p>Measures Levenshtein distance, Jaro-Winkler metrics, and lookalike character substitutions (0→o, 1→l, v→u) against canonical registries (<code>ArduinoJson</code>, <code>PubSubClient</code>, <code>Adafruit_Sensor</code>, <code>ESPAsyncWebServer</code>).</p>
+        </div>
+        <div class="research-card">
+          <div class="card-icon">👤</div>
+          <h3>② Publisher &amp; Package Metadata</h3>
+          <p>Verifies maintainer identity against verified namespaces (<code>bblanchon</code>, <code>knolleary</code>, <code>adafruit</code>). Flags repository origin mismatches, suspicious forks, and sudden unverified publisher releases.</p>
+        </div>
+        <div class="research-card">
+          <div class="card-icon">🔍</div>
+          <h3>③ Static Source Indicators</h3>
+          <p>Detects hidden socket/WiFi calls, credential-related identifiers (<code>WiFi.psk()</code>, <code>WiFi.SSID()</code>), memory function pointer execution, PlatformIO compiler build hooks (<code>extra_scripts</code>), and hex/XOR obfuscation.</p>
+        </div>
+        <div class="research-card">
+          <div class="card-icon">⚡</div>
+          <h3>④ ESP32 Hardware Context</h3>
+          <p>Validates declared hardware profile vs actual library behavior: flags ambient sensor libraries touching WiFi radios, direct NVS flash partition reads, and tampering with ESP32 bootstrap strapping pins (GPIO0, 2, 12, 15).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Embedded Studio -->
+    <section id="studio" class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">INTERACTIVE AUDIT LABORATORY</span>
+        <h2>3. Embedded Dependency Scanner</h2>
+        <p>Test legitimate PlatformIO libraries against controlled suspicious samples with hardware context validation.</p>
+      </div>
+
+      <!-- Studio Configuration Controls -->
+      <div class="studio-controls">
+        <div class="control-row">
+          <div class="control-col">
+            <label for="sampleSelect">Select Benchmark Sample:</label>
+            <select id="sampleSelect" class="form-select">
+              <optgroup label="Legitimate Embedded Libraries (PlatformIO/Arduino)">
+                <option value="EMB-01">EMB-01: ArduinoJson (Official Parser - bblanchon)</option>
+                <option value="EMB-02">EMB-02: PubSubClient (Verified MQTT - knolleary)</option>
+                <option value="EMB-03">EMB-03: Adafruit_Sensor (Unified Sensor - adafruit)</option>
+                <option value="EMB-04">EMB-04: DHT sensor library (Hardware Bitbang - adafruit)</option>
+                <option value="EMB-05">EMB-05: ESPAsyncWebServer (Legit Web Server - me-no-dev)</option>
+              </optgroup>
+              <optgroup label="Controlled Suspicious Samples (Lookalikes &amp; Exploits)">
+                <option value="EMB-06">EMB-06: Arduin0Json (Lookalike + WiFi Credential Exfiltration)</option>
+                <option value="EMB-07">EMB-07: PubSubCllient (Lookalike + Covert MQTT WiFi.psk Sniffing)</option>
+                <option value="EMB-08">EMB-08: Adafru1t_Sensor (extra_scripts Host Build Hook)</option>
+                <option value="EMB-09">EMB-09: DHT22_Ultra_Fast (Unrelated Name + Unpermitted Socket)</option>
+                <option value="EMB-10">EMB-10: ESP32_OLED_Helper (Display Driver Reading NVS Flash Keys)</option>
+                <option value="EMB-11">EMB-11: Blynk_Pro_Fix (XOR Obfuscation + Dynamic Pointer Invocation)</option>
+                <option value="EMB-12">EMB-12: BMP280_AirPressure (Bootstrap Strapping Pin GPIO0 Tampering)</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="control-col">
+            <label for="inputPkgName">Package Name:</label>
+            <input type="text" id="inputPkgName" class="form-input" value="Arduin0Json">
+          </div>
+
+          <div class="control-col">
+            <label for="inputPublisher">Publisher / Author:</label>
+            <input type="text" id="inputPublisher" class="form-input" value="dev_hacker99">
+          </div>
+        </div>
+
+        <div class="control-row secondary-controls">
+          <div class="control-col">
+            <label for="targetBoardSelect">Target Hardware Board:</label>
+            <select id="targetBoardSelect" class="form-select sm">
+              <option value="ESP32-WROOM-32">ESP32-WROOM-32 (Xtensa Dual-Core)</option>
+              <option value="ESP32-S3">ESP32-S3 (AI Vector Ext)</option>
+              <option value="Arduino Uno">Arduino Uno (ATmega328P)</option>
+            </select>
+          </div>
+
+          <div class="control-col">
+            <label for="libraryPurposeSelect">Declared Purpose:</label>
+            <select id="libraryPurposeSelect" class="form-select sm">
+              <option value="sensor">Sensor Driver (I2C/SPI/GPIO)</option>
+              <option value="display">Display Driver (OLED/TFT)</option>
+              <option value="json_parser">Data Serialization / Parser</option>
+              <option value="mqtt_client">Communication (MQTT/Networking)</option>
+              <option value="web_server">Network Server (HTTP)</option>
+            </select>
+          </div>
+
+          <div class="control-col toggle-col">
+            <label for="allowNetworkToggle">Allow WiFi/Network:</label>
+            <input type="checkbox" id="allowNetworkToggle">
+          </div>
+
+          <div class="control-col action-col">
+            <button id="btnScanEmbedded" class="btn btn-primary">
+              <span>⚡</span> Scan Package
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workspace: Code & Diagnostics -->
+      <div class="workspace-grid">
+        <!-- Source Code Editor -->
+        <div class="editor-pane">
+          <div class="pane-header">
+            <span class="pane-title">EMBEDDED C++ / ARDUINO SOURCE CODE</span>
+            <span id="editorStatus" class="pane-badge badge-neutral">Ready</span>
+          </div>
+          <div class="code-editor-wrapper">
+            <textarea id="codeEditor" spellcheck="false" class="code-editor"></textarea>
+          </div>
+        </div>
+
+        <!-- Explainable Diagnostics & Random Forest -->
+        <div class="results-pane">
+          <div class="pane-header">
+            <span class="pane-title">DETECTION ENGINES (DETERMINISTIC + RANDOM FOREST)</span>
+            <span id="scanLatencyBadge" class="pane-badge badge-neutral">0.00 ms</span>
+          </div>
+
+          <div class="diagnostics-scrollable" id="diagnosticsContent">
+            <!-- Dynamic Content -->
+            <div class="empty-state">
+              <div class="empty-icon">🛡️</div>
+              <p>Select any package above and click "Scan Package" to run the 4-dimension audit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empirical Evaluation & Benchmark Section -->
+    <section id="benchmark" class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">EMPIRICAL BENCHMARK</span>
+        <h2>4. Dataset &amp; Evaluation: Baseline vs ShipSafe</h2>
+        <p>Comparing name-similarity-only baseline against multi-dimensional hardware-aware defense.</p>
+      </div>
+
+      <!-- Comparative Metric Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-val text-green" id="kpiRecall">100%</div>
+          <div class="kpi-label">ShipSafe Recall</div>
+          <div class="kpi-sub">Baseline: 28.6% (+71.4% Gain)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val text-green" id="kpiPrecision">100%</div>
+          <div class="kpi-label">ShipSafe Precision</div>
+          <div class="kpi-sub">Zero False Positives</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val text-green" id="kpiF1">100%</div>
+          <div class="kpi-label">F1 Score</div>
+          <div class="kpi-sub">Harmonic Mean</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val text-cyan" id="kpiFPR">0.0%</div>
+          <div class="kpi-label">False Positive Rate</div>
+          <div class="kpi-sub">Clean Network Libs Protected</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val text-purple" id="kpiLatency">2.5 ms</div>
+          <div class="kpi-label">Scan Latency</div>
+          <div class="kpi-sub">Sub-frame analysis</div>
+        </div>
+      </div>
+
+      <!-- Detailed Comparison Table -->
+      <div class="benchmark-table-card">
+        <div class="benchmark-header-bar">
+          <h3>Controlled Benchmark Evaluation (PlatformIO / Arduino Registry)</h3>
+          <button id="btnRefreshBenchmark" class="btn btn-sm btn-primary">
+            <span>↻</span> Re-evaluate Dataset
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>Sample ID</th>
+                <th>Package Name</th>
+                <th>Publisher</th>
+                <th>Ground Truth</th>
+                <th>Baseline (Name Only)</th>
+                <th>ShipSafe (4-Dim + RF)</th>
+                <th>Risk Score</th>
+                <th>RF P(Suspicious)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="benchmarkTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Failure Analysis & Safety Section -->
+    <section id="failures" class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">SCIENTIFIC HONESTY</span>
+        <h2>5. Failure Analysis &amp; Safety Protocol</h2>
+        <p>Rigorous documentation of static analysis limitations, edge cases, and safety controls.</p>
+      </div>
+
+      <div class="failure-grid">
+        <div class="failure-card">
+          <div class="failure-badge">FAILURE MODE 1</div>
+          <h3>Malicious Packages with Unrelated Names</h3>
+          <p>
+            Attackers publishing novel utility libraries that strictly mimic legitimate networking patterns will bypass name similarity filters. ShipSafe counteracts this via hardware context checks, but if the declared purpose includes network permissions, subtle exfiltration may require runtime dynamic analysis.
+          </p>
+          <div class="mitigation-box">
+            <strong>Mitigation:</strong> Enforce strict egress domain whitelisting in firmware network stacks.
+          </div>
+        </div>
+
+        <div class="failure-card">
+          <div class="failure-badge">FAILURE MODE 2</div>
+          <h3>Obfuscated or Dynamically Activated Behavior</h3>
+          <p>
+            Payloads triggered only after specific physical sensor thresholds (e.g. temperature &gt; 50°C) or dynamic timing delays (sleep for 72 hours) remain dormant during compile-time static inspection.
+          </p>
+          <div class="mitigation-box">
+            <strong>Mitigation:</strong> Complement static gates with JTAG hardware-in-the-loop (HIL) automated test benches.
+          </div>
+        </div>
+
+        <div class="failure-card">
+          <div class="failure-badge">FAILURE MODE 3</div>
+          <h3>Conditional Compilation &amp; Missing Board Wiring</h3>
+          <p>
+            Complex <code>#ifdef</code> macros targeting specific chip silicon revisions or board wiring absent from the declared profile can mask pin conflicts or memory addresses.
+          </p>
+          <div class="mitigation-box">
+            <strong>Mitigation:</strong> Parse PlatformIO build environment matrices across all target build flags.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p><strong>ShipSafe: Hardware-Aware Embedded Dependency Security</strong></p>
+      <p>The Big Hack 2.0 · AI Research Track 03 · Problem Statement R1</p>
+      <p>Built for India · Built in Bengaluru · Protecting Next-Generation Connected Devices</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
